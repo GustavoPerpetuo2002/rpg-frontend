@@ -21,7 +21,7 @@ export function AuthProvider({ children }) {
 
   const checkAuthStatus = async () => {
     try {
-      const response = await fetch('/api/auth/me', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/me`, {
         credentials: 'include'
       })
       
@@ -38,7 +38,7 @@ export function AuthProvider({ children }) {
 
   const login = async (username, password) => {
     try {
-      const response = await fetch('/api/auth/login', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -62,7 +62,7 @@ export function AuthProvider({ children }) {
 
   const register = async (username, email, password) => {
     try {
-      const response = await fetch('/api/auth/register', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -86,7 +86,7 @@ export function AuthProvider({ children }) {
 
   const logout = async () => {
     try {
-      await fetch('/api/auth/logout', {
+      await fetch(`${import.meta.env.VITE_API_URL}/api/auth/logout`, {
         method: 'POST',
         credentials: 'include'
       })
